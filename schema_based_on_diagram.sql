@@ -20,3 +20,9 @@ CREATE TABLE invoices(
     medical_history_id INT NOT NULL,
     CONSTRAINT history_fk FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
 )
+
+CREATE TABLE treatments(
+    id SERIAL PRIMARY KEY,
+    type VARCHAR(50),
+    name VARCHAR(50)
+)
