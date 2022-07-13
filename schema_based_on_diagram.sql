@@ -26,3 +26,14 @@ CREATE TABLE treatments(
     type VARCHAR(50),
     name VARCHAR(50)
 )
+
+CREATE TABLE invoice_items(
+    id SERIAL PRIMARY KEY,
+    unit_price DECIMAL NOT NULL,
+    quantity INT NOT NULL,
+    total_price DECIMAL NOT NULL,
+    invoice_id INT NOT NULL,
+    treatment_id INT NOT NULL,
+    CONSTRAINT invoices_fk FOREIGN KEY(invoice_id) REFERENCES invoices(id),
+    CONSTRAINT treatment_fk FOREIGN KEY(treatment_id) REFERENCES treaments(id)
+);
